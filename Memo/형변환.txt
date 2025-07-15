@@ -1,0 +1,35 @@
+# Given
+String sNum = "1234";
+char cNum = '1';
+int i = 12;
+
+# Summary
+크게 숫자, char, String으로 구분할 수 있다. (boolean은 무시)
+숫자에는 float, double/ int, short, byte가 있다. 
+3개 중 2개를 선택하고, 순서를 신경써야 하므로 3P2 = 6이다.
+
+# 1. Num to Char
+cNum = i + '0' 
+
+# 2. Char to Num
+n = cNum - '0';
+
+# 3. Char[] to String
+String sNum = new String(cNum); 
+String sNum = String.valueOf(cNum);
+
+# 4. String to Char[]
+char[] cNum = sNum.toCharArray();
+
+# 5. Num to String
+String i = String.valueOf(i);
+String i = Integer.toString(i);
+-> 다른 타입도 동일
+
+# 6. String to Num
+int i = Integer.parseInt(sNum);
+int i = Integer.valueOf(sNum);
+double j = Double.parseDouble(sNum);
+double j = Double.valueOf(sNum);
+float, long, short 도 동일..
+-> 타입.parse타입 or 타입.valueOf
