@@ -1,46 +1,44 @@
 
 import java.util.Scanner;
+//sout + tap
 
 public class Main {
+    public static void main(String[] args)
+    {
+        // 데이터 입력
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();   // 배열의 차원
+        int k = sc.nextInt();   // 질의 개수
+        int[][] A = new int[N+1][N+1]; // 행렬
 
-	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int n = sc.nextInt();
-		int m = sc.nextInt();
+        A[0][0] = 0;
+        for(int i =1; i<=N; i++)
+        {
+            A[0][i]=0;
+            A[i][0]=0;
+            for(int j =1; j<=N; j++)
+            {
+                A[i][j] = A[i-1][j] + A[i][j-1] - A[i-1][j-1] + sc.nextInt();
+            }
+        }
+        int x1 = 0; int x2 = 0; int y1 = 0; int y2 = 0;
+        for(int i = 0; i<k; i++)
+        {
+            x1 = sc.nextInt();
+            y1 = sc.nextInt();
+            x2 = sc.nextInt();
+            y2 = sc.nextInt();
+            System.out.println(A[x2][y2]-A[x1-1][y2]-A[x2][y1-1]+A[x1-1][y1-1]);
+        }
 
-		int[][] D = new int[n+1][n+1];
-		
-		
-		
-		// 합배열 만들기
-		for(int i1 =0; i1<n; i1++)
-		{
-			for(int i2=0;i2<n;i2++) {
-				// 패딩 만들기
-				D[0][i2]=0;
-				D[i2][0]=0;	
-				D[i1+1][i2+1] = D[i1][i2+1] + D[i1+1][i2] - D[i1][i2] + sc.nextInt();
-			}
-		}
-		
-		int x1 = 0;
-		int x2 = 0;
-		int y1 = 0;
-		int y2 = 0;
-		int PrefixSum = 0;
-		// 구간 합 구하기
-		for (int i1 = 0; i1<m; i1++)
-		{
-			x1 = sc.nextInt();
-			y1 = sc.nextInt();
-			x2 = sc.nextInt();
-			y2 = sc.nextInt();
-			
-			PrefixSum = D[x2][y2] - D[x1-1][y2] - D[x2][y1-1] + D[x1-1][y1-1];
-			System.out.println(PrefixSum);
-		}
 
-		
-	}
+        // 메인 로직
 
+//        // 데이터 출력
+//        for (int i = 0; i<N; i++)
+//        {
+//            System.out.println(A[i]);
+//        }
+
+    }
 }
