@@ -1,4 +1,5 @@
 def solution(my_string):
+    # 파이썬에서 문자열(str)을 for로 반복하면 각 반복 변수는 char 자료형이 된다.
     for i in my_string:
         # isdigit은 str 객체의 메서드다. 기억하라.
         if(not str(i).isdigit()):
