@@ -1,4 +1,9 @@
 import math
+'''
+math.ceil(x) → 올림
+math.floor(x) → 내림
+round(x) → 반올림
+'''
 
 def solution(num, total):
     
